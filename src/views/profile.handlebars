@@ -1,0 +1,35 @@
+<body>
+
+<div class="container-xl mt-5">
+    <h2 class="display-4">WELCOME {{user.first_name}}</h2>
+    <h4 class="display-6">Your email is: {{user.email}}</h4>
+    <a href="/cart-details" class="btn btn-success mt-3 add-to-cart">Ver Carrito</a>
+    <div class="row mt-4">
+        {{#each products.payload}}
+            <div class="col-sm-3 mb-4">
+                <div class="card">
+                    <img src="/examples/images/products/product-image.jpg" class="card-img-top" alt="{{title}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{title}}</h5>
+                        <p class="card-text">Precio: ${{price}}</p>
+                        <p class="card-text">Descripción: {{description}}</p>
+                        <p class="card-text">Código: {{code}}</p>
+                        <p class="card-text">Estado: {{#if status}}Disponible{{else}}No disponible{{/if}}</p>
+                        <p class="card-text">Stock: {{stock}}</p>
+                        <p class="card-text">Categoría: {{category}}</p>
+                        <button class="btn btn-primary btn-sm add-to-cart" data-product-id="{{_id}}">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+    <!-- Agrega un contenedor para los elementos del carrito -->
+    <ul id="cart-items"></ul>
+
+    <button class="btn btn-danger"><a href="/api/sessions/signout" class="text-white">SIGN OUT</a></button>
+</div>
+
+<!-- Vincula el script -->
+<script src="/js/cart.js"></script>
+</body>

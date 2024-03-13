@@ -1,0 +1,21 @@
+<body>
+  <div class="container-xl mt-5">
+    <h2 class="display-4">Carrito de Compras</h2>
+    <ul id="cart-items">
+      {{#if productsInCart}}
+        {{!-- Agrega este log de depuración --}}
+        <script>
+          console.log("Products in Cart:", {{productsInCart}});
+        </script>
+
+        {{#each productsInCart}}
+          <li>{{product.title}} - Cantidad: {{quantity}} - Precio: ${{product.price}}</li>
+        {{/each}}
+      {{else}}
+        <li>No hay productos en el carrito.</li>
+      {{/if}}
+    </ul>
+    <a href="/profile" class="btn btn-primary mt-3">Volver a Perfil</a>
+  </div>
+  <script src="/js/cart.js"></script>
+</body>

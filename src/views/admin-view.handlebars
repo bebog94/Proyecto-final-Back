@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>Admin Panel</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each allUsers}}
+        <tr>
+          <td>{{this.name}}</td>
+          <td>{{this.email}}</td>
+          <td>{{this.role}}</td>
+          <td>
+            <!-- Botones para modificar y eliminar -->
+            <button onclick="modifyRole('{{this._id}}')" class="btn btn-info">Modify Role</button>
+            <button onclick="deleteUser('{{this._id}}')" class="btn btn-danger">Delete User</button>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
+<script src="/js/admin-panel.js"></script>
